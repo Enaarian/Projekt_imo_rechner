@@ -1,4 +1,4 @@
-from kostenfaktoren import (ausstattung_kostenfaktor,
+from berechnung.kostenfaktoren import (ausstattung_kostenfaktor,
                             bundesland_kostenfaktoren, hausart_kostenfaktor,
                             stadt_vs_land_kostenfaktor, weitere_kostenfaktoren)
 def berechne_immobilienpreis(grundstueck, wohnflaeche, architektenhaus,
@@ -35,7 +35,7 @@ denkmalschutz = True
 baujahr = 1950
 lage = 'Land'
 ausstattung = 'Einfach'
-hausart = 'Einfamilienhaus'
+hausart = 'Sanierungsbedarf'
 bundesland = 'Baden-Württemberg'
 
 geschaetzter_preis = berechne_immobilienpreis(grundstueck, wohnflaeche,
