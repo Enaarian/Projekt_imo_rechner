@@ -32,11 +32,11 @@ stadt_vs_land_kostenfaktor = {
     "Land": 1,
     "Stadt": 2
 }
-weitere_kostenfaktoren = {      # Werte in prozent
-    "QM-Grundstück": 160,
-    "QM-Wohnfläche": 2500,
-    "Geplant von Architekt": 20,
-    "Makler": 20,
-    "Denkmalschutz": -25,       # Negativer Wert für Reduzierung
-    "Baujahr": -0.1             # Negativer Wert für Reduzierung
+weitere_kostenfaktoren = {
+    "QM-Grundstück": 160,           # kein %
+    "QM-Wohnfläche": 2500,          # kein %
+    "Geplant von Architekt": 20,    # wert in %
+    "Makler": 20,                   # wert in %
+    "Denkmalschutz": -25,       # Negativer Wert für Reduzierung %
+    "Baujahr": -0.1             # Negativer Wert für Reduzierung %
 }

@@ -13,23 +13,23 @@ def berechne_immobilienpreis(grundstueck, wohnflaeche, architektenhaus,
     kostenfaktor += wohnflaeche * (weitere_kostenfaktoren.get("QM-Wohnfläche",
                                                               0))
     if architektenhaus and "Geplant von Architekt" in weitere_kostenfaktoren:
-        kostenfaktor += weitere_kostenfaktoren["Geplant von Architekt"]
+        kostenfaktor *= (weitere_kostenfaktoren["Geplant von Architekt"]/100+1)
     if makler and "Makler" in weitere_kostenfaktoren:
-        kostenfaktor += weitere_kostenfaktoren["Makler"]
+        kostenfaktor *= (weitere_kostenfaktoren["Makler"]/100+1)
     if denkmalschutz and "Denkmalschutz" in weitere_kostenfaktoren:
-        kostenfaktor += weitere_kostenfaktoren["Denkmalschutz"]
+        kostenfaktor *= (1-weitere_kostenfaktoren["Denkmalschutz"]/100*-1)
     if "Baujahr" in weitere_kostenfaktoren:
-        kostenfaktor += (2022 - baujahr) * weitere_kostenfaktoren["Baujahr"]
+        kostenfaktor *= (1+(2024 - baujahr) * (weitere_kostenfaktoren[
+            "Baujahr"]/100*-1))
     if ausstattung.lower() in ausstattung_kostenfaktor:
         kostenfaktor *= ausstattung_kostenfaktor[ausstattung.lower()]
     if hausart.lower() in hausart_kostenfaktor:
         kostenfaktor *= hausart_kostenfaktor[hausart.lower()]
     return kostenfaktor
 
-# Beispiel Verwendung:
 grundstueck = 800
 wohnflaeche = 80
-architektenhaus = False
+architektenhaus = True
 makler = True
 denkmalschutz = True
 baujahr = 1950
