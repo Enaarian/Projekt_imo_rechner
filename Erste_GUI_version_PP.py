@@ -1,57 +1,27 @@
-# Bundesland-Kostenfaktoren Dictionary
-bundesland_kostenfaktoren = {
-    'Baden-Württemberg': 1.5,
-    'Bayern': 1.7,
-    'Berlin': 2.1,
-    'Brandenburg': 1.1,
-    'Bremen': 1.2,
-    'Hamburg': 2.5,
-    'Hessen': 1.3,
-    'Mecklenburg-Vorpommern': 0.9,
-    'Niedersachsen': 1,
-    'Nordrhein-Westfalen': 1.1,
-    'Rheinland-Pfalz': 1,
-    'Saarland': 0.7,
-    'Sachsen': 0.7,
-    'Sachsen-Anhalt': 0.6,
-    'Schleswig-Holstein': 1.4,
-    'Thüringen': 0.6
-}
-
-# Stadt vs. Land Kostenfaktoren Dictionary
-stadt_vs_land_kostenfaktoren = {
-    'Land': 1,
-    'Stadt': 2
-}
-
-# Weitere Kostenfaktoren Dictionary
-weitere_kostenfaktoren = {
-    'QM-Grundstück': {'Preis': 160, 'Einheit': 'pro m²'},
-    'QM-Wohnfläche': {'Preis': 2500, 'Einheit': 'pro m²'},
-    'Geplant von Architekt': {'Aufschlag': 20, 'Einheit': 'Aufschlag in %'},
-    'Makler': {'Aufschlag': 20, 'Einheit': 'Aufschlag in %'},
-    'Denkmalschutz': {'Reduzierung': 25, 'Einheit': 'Reduzierung in %'},
-    'Baujahr': {'Reduzierung': 0.1, 'Einheit': 'Reduzierung in % pro Jahr'}
-}
-
-ausstattung_kostenfaktoren = {
-    'Rohbau': 0.5,
-    'Sanierungsbedarf': 0.8,
-    'Renovierungsbedarf': 0.9,
-    'Einfach': 1,
-    'Gehoben': 2
-}
-
-hausart_kostenfaktoren = {
-    'Einfamilienhaus': 1,
-    'Doppelhaushälfte': 0.8,
-    'Mehrfamilienhaus': 0.7
-}
-
-
+from berechnung.kostenfaktoren import (ausstattung_kostenfaktor,
+                            bundesland_kostenfaktoren, hausart_kostenfaktor,
+                            stadt_vs_land_kostenfaktor, weitere_kostenfaktoren)
+from berechnung.berechnung_main import berechne_immobilienpreis
 import tkinter as tk
 from tkinter import ttk
 
+def geschaetz():
+    gf= float(grundstuecksflaeche_entry.get())
+    wf = float(wohnflaeche_entry.get())
+    architektenhaus = architektenhaus_var.get()
+    makler = makler_verkauf_var.get()
+    denkmalschutz = denkmalschutz_var.get()
+    baujahr = int(baujahr_entry.get())
+    lage = stadt_oder_land_var.get()
+    ausstattung = ausstattung_var.get()
+    hausart = hausart_var.get()
+    bundesland = bundesland_var.get()
+
+    preis = berechne_immobilienpreis(gf, wf, architektenhaus, makler,
+                                 denkmalschutz,
+                             baujahr, lage, ausstattung, hausart, bundesland)
+    print(f"Das ist der schätz preis {preis:.2f}€")
+    return preis
 def calculate_cost():
     grundstuecksflaeche_val = float(grundstuecksflaeche_entry.get())
     wohnflaeche_val = float(wohnflaeche_entry.get())
@@ -184,7 +154,7 @@ bundesland_combobox = ttk.Combobox(root, textvariable=bundesland_var,
 bundesland_combobox.grid(row=9, column=1, padx=10, pady=10)
 
 # Button zum Berechnen
-calculate_button = ttk.Button(root, text="Berechnen", command=calculate_cost,
+calculate_button = ttk.Button(root, text="Berechnen", command=geschaetz,
                               style="TButton")
 calculate_button.grid(row=10, column=0, columnspan=2, pady=10)
 
