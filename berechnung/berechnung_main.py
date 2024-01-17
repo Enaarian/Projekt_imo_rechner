@@ -9,9 +9,9 @@ def berechne_immobilienpreis(grundstueck, wohnflaeche, architektenhaus,
     if lage.lower() in stadt_vs_land_kostenfaktor:
         kostenfaktor *= stadt_vs_land_kostenfaktor[lage.lower()]
     kostenfaktor += grundstueck * (weitere_kostenfaktoren.get("QM-Grundstück",
-                                                              0) / 100)
+                                                              0))
     kostenfaktor += wohnflaeche * (weitere_kostenfaktoren.get("QM-Wohnfläche",
-                                                              0) / 100)
+                                                              0))
     if architektenhaus and "Geplant von Architekt" in weitere_kostenfaktoren:
         kostenfaktor += weitere_kostenfaktoren["Geplant von Architekt"]
     if makler and "Makler" in weitere_kostenfaktoren:
