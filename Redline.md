@@ -20,7 +20,7 @@ Dies könnte beinhalten, sicherzustellen, dass numerische Eingaben
 tatsächlich Zahlen sind,
 und dass die Werte in einem akzeptablen Bereich liegen.
 ### Schritt 6: Berechnungslogik implementieren
-### Erstellen Sie die Logik, um den Immobilienpreis basierend auf den 
+ Erstellen Sie die Logik, um den Immobilienpreis basierend auf den 
 gesammelten und validierten Daten zu schätzen. 
 Dies könnte auf den in der Excel-Datei angegebenen 
 Regeln und Faktoren basieren.
