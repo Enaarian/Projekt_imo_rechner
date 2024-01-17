@@ -34,7 +34,6 @@ weitere_kostenfaktoren = {
     'Baujahr': {'Reduzierung': 0.1, 'Einheit': 'Reduzierung in % pro Jahr'}
 }
 
-# Ausstattung Kostenfaktoren Dictionary
 ausstattung_kostenfaktoren = {
     'Rohbau': 0.5,
     'Sanierungsbedarf': 0.8,
@@ -43,12 +42,12 @@ ausstattung_kostenfaktoren = {
     'Gehoben': 2
 }
 
-# Hausart Kostenfaktoren Dictionary
 hausart_kostenfaktoren = {
     'Einfamilienhaus': 1,
     'Doppelhaushälfte': 0.8,
     'Mehrfamilienhaus': 0.7
 }
+
 
 import tkinter as tk
 from tkinter import ttk
@@ -65,9 +64,9 @@ def calculate_cost():
     hausart_val = hausart_var.get()
     bundesland_val = bundesland_var.get()
 
-    # Hier kannst du die Logik für die Kostenberechnung einfügen
 
-    # Beispiel: Drucke die eingegebenen Werte für Testzwecke
+
+
     print("Grundstücksfläche:", grundstuecksflaeche_val)
     print("Wohnfläche:", wohnflaeche_val)
     print("Architektenhaus:", architektenhaus_val)
@@ -79,25 +78,27 @@ def calculate_cost():
     print("Hausart:", hausart_val)
     print("Bundesland:", bundesland_val)
 
-# GUI erstellen
+
 root = tk.Tk()
 root.title("Immobilenkostenrechner")
-root.geometry("400x550")  # Anpassung der Fenstergröße
+root.geometry("900x500")
 
-# Hintergrundbild einbinden
-background_image = tk.PhotoImage(file="C:/Users/Admin/Desktop/1690897892210.png")
+
+background_image = tk.PhotoImage(file="1690897892210.png")
 background_label = tk.Label(root, image=background_image)
 background_label.place(relwidth=1, relheight=1)
 
-# Stil für die Widgets
 style = ttk.Style()
-style.configure("TLabel", padding=5, font=('Arial', 12), background='rgba(255, 255, 255, 0.7)', foreground='#000080')
-style.configure("TButton", padding=5, font=('Arial', 12), background='#4169E1', foreground='#FFFFFF')
+style.configure("TLabel", padding=5, font=('Arial', 12), background=
+'rgba(255, 255, 255, 0.7)', foreground='#000080')
+style.configure("TButton", padding=5, font=('Arial', 12), background=
+'#4169E1', foreground='#FFFFFF')
 style.configure("TEntry", padding=5, font=('Arial', 12))
 style.configure("TCombobox", padding=5, font=('Arial', 12))
 
 # Grundstücksfläche
-grundstuecksflaeche_label = ttk.Label(root, text="Grundstücksfläche (m²):", style="TLabel")
+grundstuecksflaeche_label = ttk.Label(root, text="Grundstücksfläche (m²):",
+                                      style="TLabel")
 grundstuecksflaeche_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
 
 grundstuecksflaeche_entry = ttk.Entry(root, style="TEntry")
@@ -115,7 +116,8 @@ architektenhaus_label = ttk.Label(root, text="Architektenhaus:", style="TLabel")
 architektenhaus_label.grid(row=2, column=0, padx=10, pady=10, sticky="w")
 
 architektenhaus_var = tk.BooleanVar()
-architektenhaus_checkbox = ttk.Checkbutton(root, variable=architektenhaus_var, style="TCheckbutton")
+architektenhaus_checkbox = ttk.Checkbutton(root, variable=architektenhaus_var,
+                                           style="TCheckbutton")
 architektenhaus_checkbox.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
 # Makler Verkauf
@@ -123,7 +125,8 @@ makler_verkauf_label = ttk.Label(root, text="Makler Verkauf:", style="TLabel")
 makler_verkauf_label.grid(row=3, column=0, padx=10, pady=10, sticky="w")
 
 makler_verkauf_var = tk.BooleanVar()
-makler_verkauf_checkbox = ttk.Checkbutton(root, variable=makler_verkauf_var, style="TCheckbutton")
+makler_verkauf_checkbox = ttk.Checkbutton(root, variable=makler_verkauf_var,
+                                          style="TCheckbutton")
 makler_verkauf_checkbox.grid(row=3, column=1, padx=10, pady=10, sticky="w")
 
 # Denkmalschutz
@@ -131,7 +134,8 @@ denkmalschutz_label = ttk.Label(root, text="Denkmalschutz:", style="TLabel")
 denkmalschutz_label.grid(row=4, column=0, padx=10, pady=10, sticky="w")
 
 denkmalschutz_var = tk.BooleanVar()
-denkmalschutz_checkbox = ttk.Checkbutton(root, variable=denkmalschutz_var, style="TCheckbutton")
+denkmalschutz_checkbox = ttk.Checkbutton(root, variable=denkmalschutz_var,
+                                         style="TCheckbutton")
 denkmalschutz_checkbox.grid(row=4, column=1, padx=10, pady=10, sticky="w")
 
 # Baujahr
@@ -146,7 +150,8 @@ stadt_oder_land_label = ttk.Label(root, text="Stadt oder Land:", style="TLabel")
 stadt_oder_land_label.grid(row=6, column=0, padx=10, pady=10, sticky="w")
 
 stadt_oder_land_var = tk.StringVar()
-stadt_oder_land_combobox = ttk.Combobox(root, textvariable=stadt_oder_land_var, values=['Stadt', 'Land'], style="TCombobox")
+stadt_oder_land_combobox = ttk.Combobox(root, textvariable=stadt_oder_land_var,
+                                        values=['Stadt', 'Land'], style="TCombobox")
 stadt_oder_land_combobox.grid(row=6, column=1, padx=10, pady=10)
 
 # Ausstattung
@@ -154,7 +159,9 @@ ausstattung_label = ttk.Label(root, text="Ausstattung:", style="TLabel")
 ausstattung_label.grid(row=7, column=0, padx=10, pady=10, sticky="w")
 
 ausstattung_var = tk.StringVar()
-ausstattung_combobox = ttk.Combobox(root, textvariable=ausstattung_var, values=['Rohbau', 'Sanierungsbedarf', 'Renovierungsbedarf', 'Einfach', 'Gehoben'], style="TCombobox")
+ausstattung_combobox = ttk.Combobox(root, textvariable=ausstattung_var, values=
+['Rohbau', 'Sanierungsbedarf', 'Renovierungsbedarf', 'Einfach', 'Gehoben'],
+                                    style="TCombobox")
 ausstattung_combobox.grid(row=7, column=1, padx=10, pady=10)
 
 # Hausart
@@ -162,7 +169,8 @@ hausart_label = ttk.Label(root, text="Hausart:", style="TLabel")
 hausart_label.grid(row=8, column=0, padx=10, pady=10, sticky="w")
 
 hausart_var = tk.StringVar()
-hausart_combobox = ttk.Combobox(root, textvariable=hausart_var, values=['Einfamilienhaus', 'Doppelhaushälfte', 'Mehrfamilienhaus'], style="TCombobox")
+hausart_combobox = ttk.Combobox(root, textvariable=hausart_var, values=
+['Einfamilienhaus', 'Doppelhaushälfte', 'Mehrfamilienhaus'], style="TCombobox")
 hausart_combobox.grid(row=8, column=1, padx=10, pady=10)
 
 # Bundesland
@@ -170,13 +178,16 @@ bundesland_label = ttk.Label(root, text="Bundesland:", style="TLabel")
 bundesland_label.grid(row=9, column=0, padx=10, pady=10, sticky="w")
 
 bundesland_var = tk.StringVar()
-bundesland_combobox = ttk.Combobox(root, textvariable=bundesland_var, values=list(bundesland_kostenfaktoren.keys()), style="TCombobox")
+bundesland_combobox = ttk.Combobox(root, textvariable=bundesland_var,
+                                   values=list(bundesland_kostenfaktoren.keys
+                                               ()), style="TCombobox")
 bundesland_combobox.grid(row=9, column=1, padx=10, pady=10)
 
 # Button zum Berechnen
-calculate_button = ttk.Button(root, text="Berechnen", command=calculate_cost, style="TButton")
+calculate_button = ttk.Button(root, text="Berechnen", command=calculate_cost,
+                              style="TButton")
 calculate_button.grid(row=10, column=0, columnspan=2, pady=10)
 
-# Hauptloop starten
+
 root.mainloop()
 
