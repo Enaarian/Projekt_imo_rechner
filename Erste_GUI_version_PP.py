@@ -6,6 +6,7 @@ from berechnung.kostenfaktoren import (ausstattung_kostenfaktor,
                             bundesland_kostenfaktoren, hausart_kostenfaktor,
                             stadt_vs_land_kostenfaktor, weitere_kostenfaktoren)
 
+
 def geschaetz():
     grundstuecksflaeche_val = grundstuecksflaeche_entry.get()
     wohnflaeche_val = wohnflaeche_entry.get()
@@ -21,7 +22,8 @@ def geschaetz():
         baujahr = int(baujahr_val)
     except ValueError:
         ergebnis_label.config(
-            text="Ungültige Eingabe. Stelle sicher, dass Zahlen korrekt eingegeben wurden.")
+            text="Ungültige Eingabe. Stelle sicher,"
+                 " dass Zahlen korrekt eingegeben wurden.")
         return
     gf = float(grundstuecksflaeche_entry.get())
     wf = float(wohnflaeche_entry.get())
@@ -37,6 +39,7 @@ def geschaetz():
     preis = berechne_immobilienpreis(gf, wf, architektenhaus, makler,
                                      denkmalschutz, baujahr, lage, ausstattung, hausart, bundesland)
     ergebnis_label.config(text=f"Der überteuerte Schätzpreis: {preis:.2f}€")
+
 
 root = tk.Tk()
 root.title("Immobilienkostenrechner")
