@@ -27,19 +27,19 @@ def berechne_immobilienpreis(grundstueck, wohnflaeche, architektenhaus,
         kostenfaktor *= hausart_kostenfaktor[hausart.lower()]
     return kostenfaktor
 
-grundstueck = 800
-wohnflaeche = 80
-architektenhaus = True
-makler = True
-denkmalschutz = True
-baujahr = 1950
-lage = 'Land'
-ausstattung = 'Einfach'
-hausart = 'Einfamilienhaus'
-bundesland = 'Baden-Württemberg'
-
-geschaetzter_preis = berechne_immobilienpreis(grundstueck, wohnflaeche,
-                                              architektenhaus, makler,
-                                              denkmalschutz, baujahr, lage,
-                                              ausstattung, hausart, bundesland)
-print(f"Geschätzter Preis: {geschaetzter_preis:.2f} Euro")
+# grundstueck = 800
+# wohnflaeche = 80
+# architektenhaus = True
+# makler = True
+# denkmalschutz = True
+# baujahr = 1950
+# lage = 'Land'
+# ausstattung = 'Einfach'
+# hausart = 'Einfamilienhaus'
+# bundesland = 'Baden-Württemberg'
+#
+# geschaetzter_preis = berechne_immobilienpreis(grundstueck, wohnflaeche,
+#                                               architektenhaus, makler,
+#                                               denkmalschutz, baujahr, lage,
+#                                               ausstattung, hausart, bundesland)
+# print(f"Geschätzter Preis: {geschaetzter_preis:.2f} Euro")
