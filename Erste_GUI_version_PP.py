@@ -35,8 +35,17 @@ def geschaetz():
     bundesland = bundesland_var.get()
 
     preis = berechne_immobilienpreis(gf, wf, architektenhaus, makler,
-                                     denkmalschutz, baujahr, lage, ausstattung, hausart, bundesland)
-    ergebnis_label.config(text=f"Der überteuerte Schätzpreis: {preis:.2f}€")
+                                     denkmalschutz, baujahr, lage, ausstattung,
+                                     hausart, bundesland)
+
+    preis_text = ("{:,.2f} €".format(preis).replace(",", "X").
+    replace(".",
+                                                                     ",")
+    .replace(
+        "X", "."))
+    ergebnis_label.config(text=f"Der überteuerte Schätzpreis: {preis_text}")
+
+
 
 root = tk.Tk()
 root.title("Immobilienkostenrechner")
