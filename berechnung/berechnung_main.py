@@ -19,27 +19,33 @@ def berechne_immobilienpreis(grundstueck, wohnflaeche, architektenhaus,
     if denkmalschutz and "Denkmalschutz" in weitere_kostenfaktoren:
         kostenfaktor *= (1-weitere_kostenfaktoren["Denkmalschutz"]/100*-1)
     if "Baujahr" in weitere_kostenfaktoren:
-        kostenfaktor *= (1+(2024 - baujahr) * (weitere_kostenfaktoren[
+        kostenfaktor /= (1+(2024 - baujahr) * (weitere_kostenfaktoren[
             "Baujahr"]/100*-1))
-    if ausstattung.lower() in ausstattung_kostenfaktor:
-        kostenfaktor *= ausstattung_kostenfaktor[ausstattung.lower()]
-    if hausart.lower() in hausart_kostenfaktor:
-        kostenfaktor *= hausart_kostenfaktor[hausart.lower()]
+    if ausstattung in ausstattung_kostenfaktor:
+        kostenfaktor *= ausstattung_kostenfaktor[ausstattung]
+    if hausart in hausart_kostenfaktor:
+        kostenfaktor *= hausart_kostenfaktor[hausart]
+    if bundesland in bundesland_kostenfaktoren:
+        kostenfaktor *= bundesland_kostenfaktoren[bundesland]
+    if lage in stadt_vs_land_kostenfaktor:
+        kostenfaktor *= stadt_vs_land_kostenfaktor[lage]
+
     return kostenfaktor
 
-# grundstueck = 800
-# wohnflaeche = 80
-# architektenhaus = True
-# makler = True
-# denkmalschutz = True
-# baujahr = 1950
-# lage = 'Land'
-# ausstattung = 'Einfach'
-# hausart = 'Einfamilienhaus'
-# bundesland = 'Baden-Württemberg'
-#
-# geschaetzter_preis = berechne_immobilienpreis(grundstueck, wohnflaeche,
-#                                               architektenhaus, makler,
-#                                               denkmalschutz, baujahr, lage,
-#                                               ausstattung, hausart, bundesland)
-# print(f"Geschätzter Preis: {geschaetzter_preis:.2f} Euro")
+grundstueck = 800
+wohnflaeche = 80
+architektenhaus = True
+makler = True
+denkmalschutz = True
+baujahr = 1950
+lage = 'Stadt'
+ausstattung = 'Rohbau'
+hausart = 'Doppelhaushälfte'
+bundesland = 'Baden-Württemberg'
+
+geschaetzter_preis = berechne_immobilienpreis(grundstueck, wohnflaeche,
+                                              architektenhaus, makler,
+                                              denkmalschutz, baujahr, lage,
+                                              ausstattung, hausart, bundesland)
+print(f"Geschätzter Preis: {geschaetzter_preis:.2f} Euro")
+
