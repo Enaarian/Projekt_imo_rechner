@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from berechnung.kostenfaktoren import (ausstattung_kostenfaktor,
                             bundesland_kostenfaktoren, hausart_kostenfaktor,
                             stadt_vs_land_kostenfaktor, weitere_kostenfaktoren)
@@ -7,6 +8,34 @@ from tkinter import ttk
 
 def geschaetz():
     gf= float(grundstuecksflaeche_entry.get())
+=======
+
+import tkinter as tk
+from tkinter import ttk
+from berechnung.berechnung_main import berechne_immobilienpreis
+from berechnung.kostenfaktoren import (ausstattung_kostenfaktor,
+                            bundesland_kostenfaktoren, hausart_kostenfaktor,
+                            stadt_vs_land_kostenfaktor, weitere_kostenfaktoren)
+
+def geschaetz():
+    grundstuecksflaeche_val = grundstuecksflaeche_entry.get()
+    wohnflaeche_val = wohnflaeche_entry.get()
+    baujahr_val = baujahr_entry.get()
+
+    if not grundstuecksflaeche_val or not wohnflaeche_val or not baujahr_val:
+        ergebnis_label.config(text="Bitte fülle alle Felder aus.")
+        return
+
+    try:
+        gf = float(grundstuecksflaeche_val)
+        wf = float(wohnflaeche_val)
+        baujahr = int(baujahr_val)
+    except ValueError:
+        ergebnis_label.config(
+            text="Ungültige Eingabe. Stelle sicher, dass Zahlen korrekt eingegeben wurden.")
+        return
+    gf = float(grundstuecksflaeche_entry.get())
+>>>>>>> Erste-GUI-Version
     wf = float(wohnflaeche_entry.get())
     architektenhaus = architektenhaus_var.get()
     makler = makler_verkauf_var.get()
@@ -18,6 +47,7 @@ def geschaetz():
     bundesland = bundesland_var.get()
 
     preis = berechne_immobilienpreis(gf, wf, architektenhaus, makler,
+<<<<<<< HEAD
                                  denkmalschutz,
                              baujahr, lage, ausstattung, hausart, bundesland)
     print(f"Das ist der schätz preis {preis:.2f}€")
@@ -54,17 +84,35 @@ root.title("Immobilenkostenrechner")
 root.geometry("900x500")
 
 
+=======
+                                     denkmalschutz, baujahr, lage, ausstattung, hausart, bundesland)
+    ergebnis_label.config(text=f"Der überteuerte Schätzpreis: {preis:.2f}€")
+
+root = tk.Tk()
+root.title("Immobilienkostenrechner")
+root.geometry("660x620")
+
+# Hintergrundbild
+>>>>>>> Erste-GUI-Version
 background_image = tk.PhotoImage(file="1690897892210.png")
 background_label = tk.Label(root, image=background_image)
 background_label.place(relwidth=1, relheight=1)
 
 style = ttk.Style()
+<<<<<<< HEAD
 style.configure("TLabel", padding=5, font=('Arial', 12), background=
 'rgba(255, 255, 255, 0.7)', foreground='#000080')
 style.configure("TButton", padding=5, font=('Arial', 12), background=
 '#4169E1', foreground='#FFFFFF')
 style.configure("TEntry", padding=5, font=('Arial', 12))
 style.configure("TCombobox", padding=5, font=('Arial', 12))
+=======
+style.configure("TLabel", padding=5, font=('Courier New', 12,'bold'),
+                background='#E6E6FA', foreground='#A52A2A')
+style.configure("TButton", padding=5, font=('Courier New', 12, 'bold'),
+                background='#4169E1', foreground='#A52A2A')
+style.configure("TEntry", padding=5, font=('Courier New', 12, 'bold'))
+>>>>>>> Erste-GUI-Version
 
 # Grundstücksfläche
 grundstuecksflaeche_label = ttk.Label(root, text="Grundstücksfläche (m²):",
@@ -158,6 +206,14 @@ calculate_button = ttk.Button(root, text="Berechnen", command=geschaetz,
                               style="TButton")
 calculate_button.grid(row=10, column=0, columnspan=2, pady=10)
 
+<<<<<<< HEAD
+=======
+# Ergebnislabel
+ergebnis_label = ttk.Label(root, text="Ergebnis wird hier angezeigt:", style="TLabel")
+ergebnis_label.grid(row=11, column=0, columnspan=2, pady=10)
+
+style.configure("TButton", foreground='black')
+>>>>>>> Erste-GUI-Version
 
 root.mainloop()
 
