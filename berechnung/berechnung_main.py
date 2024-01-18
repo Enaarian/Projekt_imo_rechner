@@ -1,4 +1,4 @@
-from kostenfaktoren import (ausstattung_kostenfaktor,
+from berechnung.kostenfaktoren import (ausstattung_kostenfaktor,
                             bundesland_kostenfaktoren, hausart_kostenfaktor,
                             stadt_vs_land_kostenfaktor, weitere_kostenfaktoren)
 def berechne_immobilienpreis(grundstueck, wohnflaeche, architektenhaus,
