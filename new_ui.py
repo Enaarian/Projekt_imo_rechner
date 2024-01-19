@@ -170,10 +170,10 @@ class App(customtkinter.CTk):
         # self.radio_button_3.configure(state="disabled")
         self.appearance_mode_optionemenu.set("Dark")
         self.scaling_optionemenu.set("100%")
-        self.optionmenu_1.set("Bundesländer")
-        self.optionmenu_2.set("Stadt/Land")
-        self.optionmenu_3.set("Ausstattung")
-        self.optionmenu_4.set("Hausart")
+        self.optionmenu_1.set("Berlin")
+        self.optionmenu_2.set("Land")
+        self.optionmenu_3.set("Einfach")
+        self.optionmenu_4.set("Einfamilienhaus")
         # self.combobox_1.set("CTkComboBox")
         # self.slider_1.configure(command=self.progressbar_2.set)
         # self.slider_2.configure(command=self.progressbar_3.set)
@@ -205,6 +205,7 @@ class App(customtkinter.CTk):
             wf = float(wohnflaeche_val)
             baujahr = int(baujahr_val)
         except ValueError:
+
             self.textbox_result = customtkinter.CTkTextbox(self, width=80, border_width=2, text_color="red")
             self.textbox_result.grid(row=1, column=3, padx=(20, 20), pady=(40, 0), sticky="nsew")
             self.textbox_result.insert("0.0",
