@@ -32,8 +32,10 @@ class App(customtkinter.CTk):
         self.logo_label2 = customtkinter.CTkLabel(self.sidebar_frame, text="by\nAlexander Steinke"
                                                                            "\nMica Kruse"
                                                                            "\nPatrick Eicher",
-                                                 font=customtkinter.CTkFont(size=8, weight="normal"))
-        self.logo_label2.grid(row=1, column=0, padx=0, pady=(0, 0), sticky="w")
+                                                 font=customtkinter.CTkFont(size=10, weight="normal"),
+                                                  justify="left")
+        self.logo_label2.grid(row=1, column=0, padx=20, pady=(0, 0), sticky="w")
+
         self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
         self.appearance_mode_label.grid(row=5, column=0, padx=20, pady=(10, 0))
         self.appearance_mode_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["Light", "Dark",
