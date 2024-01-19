@@ -29,6 +29,11 @@ class App(customtkinter.CTk):
         self.logo_label = customtkinter.CTkLabel(self.sidebar_frame, text="Immobilienrechner",
                                                  font=customtkinter.CTkFont(size=20, weight="bold"))
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
+        self.logo_label2 = customtkinter.CTkLabel(self.sidebar_frame, text="by\nAlexander Steinke"
+                                                                           "\nMica Kruse"
+                                                                           "\nPatrick Eicher",
+                                                 font=customtkinter.CTkFont(size=8, weight="normal"))
+        self.logo_label2.grid(row=1, column=0, padx=0, pady=(0, 0), sticky="w")
         self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
         self.appearance_mode_label.grid(row=5, column=0, padx=20, pady=(10, 0))
         self.appearance_mode_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["Light", "Dark",
@@ -46,7 +51,8 @@ class App(customtkinter.CTk):
 
         self.main_button_1 = customtkinter.CTkButton(master=self, fg_color="transparent", border_width=2,
                                                      text_color=("gray10", "#DCE4EE"),
-                                                     command=self.sidebar_button_event)
+                                                     command=self.sidebar_button_event,
+                                                     text="Berechne")
         self.main_button_1.grid(row=3, column=3, padx=(20, 20), pady=(20, 20), sticky="nsew")
 
         # create textbox
