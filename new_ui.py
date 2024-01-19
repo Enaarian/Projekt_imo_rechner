@@ -111,7 +111,8 @@ class App(customtkinter.CTk):
         self.optionmenu_2.set("Land")
         self.optionmenu_3.set("Einfach")
         self.optionmenu_4.set("Einfamilienhaus")
-        self.textbox.insert("0.0", "CTkTextbox\n\n" + "Hallo Welt")
+        self.textbox.insert("0.0", "Dieses Feld kann für Notizen genutzt werden.\n\n" + "Hallo Valentin\n\n" +
+                            "Notiz an mich selbst:\nbeim nächsten Projekt 1kg Aspirin kaufen!")
 
 
     def open_input_dialog_event(self):
