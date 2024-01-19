@@ -60,16 +60,28 @@ class App(customtkinter.CTk):
 
         self.optionmenu_1 = customtkinter.CTkOptionMenu(self.tabview.tab("Daten"), dynamic_resizing=False,
                                                         values=list(bundesland_kostenfaktoren.keys()))
-        self.optionmenu_1.grid(row=0, column=0, padx=20, pady=(20, 10), sticky="w")
+        self.optionmenu_1.grid(row=0, column=0, padx=10, pady=(20, 10), sticky="w")
         self.optionmenu_2 = customtkinter.CTkOptionMenu(self.tabview.tab("Daten"), dynamic_resizing=False,
                                                         values=list(stadt_vs_land_kostenfaktor.keys()))
-        self.optionmenu_2.grid(row=1, column=0, padx=20, pady=(20, 10), sticky="w")
+        self.optionmenu_2.grid(row=1, column=0, padx=10, pady=(20, 10), sticky="w")
         self.optionmenu_3 = customtkinter.CTkOptionMenu(self.tabview.tab("Daten"), dynamic_resizing=False,
                                                         values=list(ausstattung_kostenfaktor.keys()))
-        self.optionmenu_3.grid(row=2, column=0, padx=20, pady=(20, 10), sticky="w")
+        self.optionmenu_3.grid(row=2, column=0, padx=10, pady=(20, 10), sticky="w")
         self.optionmenu_4 = customtkinter.CTkOptionMenu(self.tabview.tab("Daten"), dynamic_resizing=False,
                                                         values=list(hausart_kostenfaktor.keys()))
-        self.optionmenu_4.grid(row=3, column=0, padx=20, pady=(20, 10), sticky="w")
+        self.optionmenu_4.grid(row=3, column=0, padx=10, pady=(20, 10), sticky="w")
+        self.label_wf_qm1 = customtkinter.CTkLabel(self.tabview.tab("Daten"), text="Wohnfläche in qm²:")
+        self.label_wf_qm1.grid(row=0, column=1, padx=10, pady=(20, 10), sticky="e")
+        self.label_gf_qm1 = customtkinter.CTkLabel(self.tabview.tab("Daten"), text="Grundstücksfläche in qm²:")
+        self.label_gf_qm1.grid(row=1, column=1, padx=10, pady=(20, 10), sticky="e")
+        self.label_bau = customtkinter.CTkLabel(self.tabview.tab("Daten"), text="Baujahr:")
+        self.label_bau.grid(row=2, column=1, padx=10, pady=(20, 10), sticky="e")
+        self.entry_wf1 = customtkinter.CTkEntry(self.tabview.tab("Daten"), placeholder_text="Wohnfläche")
+        self.entry_wf1.grid(row=0, column=2, columnspan=1, padx=(20, 0), pady=(20, 20), sticky="nsew")
+        self.entry_gf1 = customtkinter.CTkEntry(self.tabview.tab("Daten"), placeholder_text="Grundstücksfläche")
+        self.entry_gf1.grid(row=1, column=2, columnspan=1, padx=(20, 0), pady=(20, 20), sticky="nsew")
+        self.entry_wf1 = customtkinter.CTkEntry(self.tabview.tab("Daten"), placeholder_text="Baujahr")
+        self.entry_wf1.grid(row=2, column=2, columnspan=1, padx=(20, 0), pady=(20, 20), sticky="nsew")
         # self.combobox_1 = customtkinter.CTkComboBox(self.tabview.tab("CTkTabview"),
         #                                             values=["Value 1", "Value 2", "Value Long....."])
         # self.combobox_1.grid(row=1, column=0, padx=20, pady=(10, 10))
@@ -79,11 +91,11 @@ class App(customtkinter.CTk):
         # self.label_tab_2 = customtkinter.CTkLabel(self.tabview.tab("Tab 2"), text="CTkLabel on Tab 2")
         # self.label_tab_2.grid(row=0, column=0, padx=20, pady=20)
         self.checkbox_1 = customtkinter.CTkCheckBox(self.tabview.tab("Daten"), text="Architektenhaus")
-        self.checkbox_1.grid(row=0, column=1, pady=(20, 10), padx=20, sticky="w")
+        self.checkbox_1.grid(row=0, column=4, pady=(20, 10), padx=20, sticky="w")
         self.checkbox_2 = customtkinter.CTkCheckBox(self.tabview.tab("Daten"), text="Makler Verkauf")
-        self.checkbox_2.grid(row=1, column=1, pady=(20, 10), padx=20, sticky="w")
+        self.checkbox_2.grid(row=1, column=4, pady=(20, 10), padx=20, sticky="w")
         self.checkbox_3 = customtkinter.CTkCheckBox(self.tabview.tab("Daten"), text="Denkmalschutz")
-        self.checkbox_3.grid(row=2, column=1, pady=20, padx=20, sticky="w")
+        self.checkbox_3.grid(row=2, column=4, pady=20, padx=20, sticky="w")
         # create radiobutton frame
         # self.radiobutton_frame = customtkinter.CTkFrame(self)
         # self.radiobutton_frame.grid(row=1, column=3, padx=(20, 20), pady=(20, 0), sticky="nsew")
