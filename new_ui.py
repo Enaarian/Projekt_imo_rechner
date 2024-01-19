@@ -205,10 +205,15 @@ class App(customtkinter.CTk):
             wf = float(wohnflaeche_val)
             baujahr = int(baujahr_val)
         except ValueError:
+            self.textbox_result = customtkinter.CTkTextbox(self, width=80, border_width=2, text_color="red")
+            self.textbox_result.grid(row=1, column=3, padx=(20, 20), pady=(40, 0), sticky="nsew")
             self.textbox_result.insert("0.0",
                 text="-!!!Ungültige Eingabe.\n Stelle sicher,"
-                     " dass Zahlen korrekt eingegeben wurden.!!!\n", )
+                     " dass Zahlen korrekt eingegeben wurden.!!!\n")
+
             return
+        self.textbox_result = customtkinter.CTkTextbox(self, width=80, border_width=2)
+        self.textbox_result.grid(row=1, column=3, padx=(20, 20), pady=(40, 0), sticky="nsew")
         gf = float(self.entry_gf1.get())
         wf = float(self.entry_wf1.get())
         architektenhaus = self.checkbox_1.get()
@@ -229,8 +234,9 @@ class App(customtkinter.CTk):
                 ",")
         .replace(
             "X", "."))
-        self.textbox_result.insert("0.0", text=f"-Der überteuerte Schätzpreis:\n {preis_text}\n")
-
+        self.textbox_result.insert("0.0", text=f"-Der überteuerte Schätzpreis:\n{preis_text}\n")
+    # def error_redtext(self,text_color,text_field):
+    #     if
 
 if __name__ == "__main__":
     app = App()
