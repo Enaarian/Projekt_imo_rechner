@@ -105,7 +105,7 @@ class App(customtkinter.CTk):
         self.textbox_result.grid(row=1, column=3, padx=(20, 20), pady=(40, 0), sticky="nsew")
 
         # set default values
-        self.appearance_mode_optionemenu.set("Dark")
+        self.appearance_mode_optionemenu.set("System")
         self.scaling_optionemenu.set("100%")
         self.optionmenu_1.set("Berlin")
         self.optionmenu_2.set("Land")
