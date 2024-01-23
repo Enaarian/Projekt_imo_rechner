@@ -167,7 +167,7 @@ class App(customtkinter.CTk):
                 ",")
         .replace(
             "X", "."))
-        self.textbox_result.insert("0.0", text=f"-Der überteuerte Schätzpreis:\n{preis_text}\n")
+        self.textbox_result.insert("0.0", text=f"-Der überteuerte \nSchätzpreis:\n\n{preis_text}\n")
 
 
 if __name__ == "__main__":
