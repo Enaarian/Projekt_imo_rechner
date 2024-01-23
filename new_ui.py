@@ -31,7 +31,8 @@ class App(customtkinter.CTk):
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
         self.logo_label2 = customtkinter.CTkLabel(self.sidebar_frame, text="by\nAlexander Steinke"
                                                                            "\nMica Kruse"
-                                                                           "\nPatrick Eicher",
+                                                                           "\nPatrick Eicher"
+                                                                           "\nDavid Dornheim",
                                                  font=customtkinter.CTkFont(size=10, weight="normal"),
                                                   justify="left")
         self.logo_label2.grid(row=1, column=0, padx=20, pady=(0, 0), sticky="w")
